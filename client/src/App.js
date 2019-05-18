@@ -6,6 +6,7 @@ import Nav2 from './components/layout/Nav2';
 import Home from './components/pages/Home';
 import Staff from './components/pages/Staff';
 import All from './components/pages/All';
+import Category from './components/pages/Category';
 import Detail from './components/pages/Details';
 import Cart from './components/pages/Cart';
 import Login from './components/auth/Login';
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/shop" component={All} />
           <Route exact path="/shop/:id" component={Detail} />
+          <Route exact path="/shop/cat/:category" component={Category} />
           <Route exact path="/cart" component={Cart} />
           <SecureRoute exact path="/staff" component={Staff} />
           <Route path='/login' render={() => <Login baseUrl='https://dev-252251.okta.com' />} />

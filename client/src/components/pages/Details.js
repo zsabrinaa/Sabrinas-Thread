@@ -10,7 +10,8 @@ class Detail extends Component {
         quantity: "",
         size: "",
         price: "",
-        id: ""
+        id: "",
+        selectedSize: ""
     };
 
     instance;
@@ -23,7 +24,6 @@ class Detail extends Component {
                 this.setState({
                     item: data
                 })
-
                 M.FormSelect.init(document.querySelectorAll('select'));
                 this.instance = M.FormSelect.getInstance(document.getElementById("size-stuff"));
             }).catch((err => console.log(err)))
@@ -43,7 +43,14 @@ class Detail extends Component {
                     <div className="col s6">
                         <h3>{this.state.item.name}</h3>
                         <div className="input-field col s12">
-                            <select id="size-stuff">
+                            <select
+                                id="size-stuff"
+                                onChange={(e)=>{
+                                    this.setState({
+                                        selectedSize: e.target.value
+                                    })
+                                }}
+                                >
                                 <option value="" disabled selected>Size</option>
                                 {this.state.item.size ? (
                                     Object.keys(this.state.item.size).map((size, i) => {
@@ -56,8 +63,9 @@ class Detail extends Component {
                         </div>
                         <button
                             onClick={() => {
-                                let resultsArray = this.instance.getSelectedValues();
-                                let result = resultsArray[0]
+                                let resultsArray = this.state.selectedSize;
+                                console.log(resultsArray)
+                                let result = resultsArray
                                 let size = result.split(" ");
                                 let image = this.state.item.src;
                                 let itemName = this.state.item.name;

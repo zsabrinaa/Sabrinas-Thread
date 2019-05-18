@@ -27,6 +27,9 @@ export default {
   deleteBook: function(id) {
     return axios.delete("/api/books/" + id);
   },
+  findcat: function(cat) {
+    return axios.get(`/api/shop/cat/` + cat)
+  },
  
   saveItem: function(a,b,c,d,e) {
     console.log(a,b,c,d,e)

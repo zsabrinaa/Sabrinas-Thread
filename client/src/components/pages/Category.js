@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Image } from "../Img";
 
-class All extends Component {
+class Category extends Component {
   state = {
     items: []
   };
@@ -12,12 +12,13 @@ class All extends Component {
     
   }
   loadItems = () => {
-    API.getItems()
-      .then(res => {
-        this.setState({ items: res.data })
-        console.log(this.state.items)
-      })
-      .catch(err => console.log(err));
+
+    API.findcat(this.props.match.params.category)
+    .then(res => {
+      this.setState({ items: res.data })
+      console.log(this.state.items)
+    })
+    .catch(err => console.log(err));
   };
   render() {
     return (
@@ -52,4 +53,4 @@ class All extends Component {
     )
   }
 }
-export default All;
+export default Category;

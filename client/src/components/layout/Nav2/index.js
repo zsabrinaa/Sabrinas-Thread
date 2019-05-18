@@ -6,9 +6,10 @@ function Nav2(props){
     <nav>
     <div className="nav-wrapper nav2">
       <ul id="nav-mobile" className="left hide-on-med-and-down">
-        <li><a href="sass.html">T-Shirts</a></li>
-        <li><a href="badges.html">Dresses</a></li>
-        <li><a href="collapsible.html">Swimwear</a></li>
+        <li><a href="/shop/cat/tees">T-Shirts</a></li>
+        <li><a href="/shop/cat/dress">Dresses</a></li>
+        <li><a href="/shop/cat/swimwear">Swimwear</a></li>
+        <li><a href="/shop/cat/matching">Matching</a></li>
       </ul>
     </div>
   </nav>

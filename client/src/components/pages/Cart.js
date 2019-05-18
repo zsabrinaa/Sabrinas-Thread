@@ -3,6 +3,7 @@ import StripeCheckout from 'react-stripe-checkout';
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Image } from "../Img";
+import DelBtn from "../DelBtn"
 
 import axios from "axios";
 import M from 'materialize-css';
@@ -29,27 +30,34 @@ class Cart extends Component {
     // }
 
     loadCart = () => {
-        this.setState(state => {
-            return {
-                items: JSON.parse(localStorage.getItem("cart")),
-
-            }
+        // console.log("loading cart")
+        // console.log(JSON.parse(localStorage.getItem("cart")))
+        this.setState( {
+            
+                items: JSON.parse(localStorage.getItem("cart")), 
         })
     }
-
-    handleToken = (token) => {
+   deleteItem = id => {
+    const cartStuff = JSON.parse(localStorage.getItem("cart"));
+    cartStuff = []
+    console.log(cartStuff);
+    localStorage.removeItem(id)
+    this.loadCart() 
+   }
+    
+   handleToken = (token) => {
         console.log({ token })
-        // const response = axios.post(
-        //     "https://e63d4.sse.codesandbox.io/checkout",
-        //     { token, }
-        // );
-        // const { status } = response.data;
-        // console.log("Response:", response.data);
-        // if (status === "success") {
-        //     M.toast("Success! Check email for details", { type: "success" });
-        // } else {
-        //     M.toast("Something went wrong", { type: "error" });
-        // }
+        const response = axios.post(
+            "https://e63d4.sse.codesandbox.io/checkout",
+            { token, }
+        );
+        const { status } = response.data;
+        console.log("Response:", response.data);
+        if (status === "success") {
+            M.toast("Success! Check email for details", { type: "success" });
+        } else {
+            M.toast("Something went wrong", { type: "error" });
+        }
     };
     render() {
         return (
@@ -68,14 +76,11 @@ class Cart extends Component {
                         </thead>
                         {this.state.items ? (
                             this.state.items.map(item => {
-                                console.log(item.size)
                                 return (
-                                    <tbody>
+                                    <tbody> 
                                         <tr>
-                                            <span className="delete-btn" role="button" tabIndex="0" onClick={() => this.deleteItem(item.producId)}>
-                                                ✗
-                                            </span>
-                                            <Link to={"/shop/" + item.producId}>  <td className="col s2"> <Image key={item.id}
+                                        <DelBtn onClick={() => this.deleteItem(item.producId)}/>
+                                            <Link to={"/shop/" + item.producId}>  <td className="col s2"> <Image key={item.producId}
                                                 src={item.image}
                                             /></td></Link>
                                             <td className="col s2 cartText">{item.itemName}</td>
