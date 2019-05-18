@@ -1,0 +1,75 @@
+body{
+    font-family: 'Marcellus SC', serif;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.test{
+    margin-top: 100px;
+    margin-left: 80px;
+}
+.canterd{
+    text-align: center;
+}
+.cartText{
+    margin-top: 55px;
+    font-size: 20px;
+}
+.StripeElement {
+    box-sizing: border-box;
+  
+    height: 40px;
+  
+    padding: 10px 12px;
+  
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: white;
+  
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+  }
+  
+  .StripeElement--focus {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+  }
+  
+  .StripeElement--invalid {
+    border-color: #fa755a;
+  }
+  
+  .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+  }
+  
+  
+  .container-fluid .btn {
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    top: 100%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color:hotpink;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: black;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .container-fluid .btn:hover {
+    background-color: black;
+  }
+  .addbtn{
+    background-color: hotpink;
+    width: 170px;
+    margin-left: 60%;
+    font-family: 'Marcellus SC', serif;
+  }

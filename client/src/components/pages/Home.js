@@ -52,9 +52,9 @@ export default withAuth(class Home extends Component {
               <Image
                 src={"http://mcflysoftware.com/sabrina/sabrina_cover.png?fbclid=IwAR2biDqoWdq6sMuVkHKD13YRT4ApeH3AlldZtxAK9BXdVHeOj58ip3naVmI"}
               />
-              <a href="/shop"><button
+              <Link to="/shop"><button
                 // onClick={props.handleFormSubmit} 
-                className="btn">Shop Now</button></a>
+                className="btn">Shop Now</button></Link>
             </div>
           </div>
           {/* end top img */}
