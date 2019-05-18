@@ -5,6 +5,7 @@ import Navbar from './components/layout/Nav1';
 import Home from './components/pages/Home';
 import Staff from './components/pages/Staff';
 import All from './components/pages/All';
+import Detail from './components/pages/Details';
 import Login from './components/auth/Login';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
         <div className="container">
           <Route exact path="/" component={Home} />
           <Route exact path="/shop" component={All} />
+          <Route exact path="/shop/:id" component={Detail} />
           <SecureRoute exact path="/staff" component={Staff} />
           <Route path='/login' render={() => <Login baseUrl='https://dev-252251.okta.com' />} />
           <Route path='/implicit/callback' component={ImplicitCallback} />

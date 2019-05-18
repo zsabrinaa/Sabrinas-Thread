@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import { Image } from "../components/Img";
-import { AddBtn } from "../components/AddToCartbtn";
+import API from "../../utils/API";
+import { Image } from "../Img";
+import { AddBtn } from "../AddToCartbtn";
 import M from 'materialize-css';
 class Detail extends Component {
     state = {
