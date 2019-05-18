@@ -39,12 +39,9 @@ export default withAuth(class Home extends Component {
       ("");
 
     return (
-      <div>
-       
+      <main>
         {button}
         <div className="container-fluid">
-        <main>
-    
           <div className="row">
           </div>
           <div className='row'>
@@ -86,9 +83,10 @@ export default withAuth(class Home extends Component {
               />
             </div>
           </div>
-        </main>
+       
       </div>
-      </div>
+     
+      </main>
     );
   }
 });

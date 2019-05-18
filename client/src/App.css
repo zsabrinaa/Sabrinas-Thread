@@ -1,11 +1,24 @@
 body{
-    font-family: 'Marcellus SC', serif;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    font-family: 'Marcellus SC', serif;  
 }
+.Site {
+ display: flex;
+ flex-direction: column;
+ min-height: 100vh;
+}
+.Site-content {
+ flex: 1 0 auto;
+ padding: var( — space) var( — space) 0;
+ width: 100%;
+}
+.Site-content:after {
+ content: ‘\00a0’;
+ display: block;
+ margin-top: var( — space);
+ height: 0;
+ visibility: hidden;
+}
+
 .test{
     margin-top: 100px;
     margin-left: 80px;
@@ -72,4 +85,14 @@ body{
     width: 170px;
     margin-left: 60%;
     font-family: 'Marcellus SC', serif;
+  }
+ 
+  .brand-logo img {
+    height: 64px;
+}
+
+  @media (max-width: 600px) {
+    .brand-logo img {
+      height: 56px;
+    }
   }

@@ -21,7 +21,7 @@ class All extends Component {
   };
   render() {
     return (
-      <div className="container">
+      <div>
       <div className="row"></div>
         <div className="row">
           {this.state.items.length ? (
