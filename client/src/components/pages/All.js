@@ -9,11 +9,13 @@ class All extends Component {
   };
   componentDidMount() {
     this.loadItems();
+    
   }
   loadItems = () => {
     API.getItems()
       .then(res => {
         this.setState({ items: res.data })
+        console.log(this.state.items)
       })
       .catch(err => console.log(err));
   };
