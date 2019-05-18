@@ -9,8 +9,8 @@ const PORT = process.env.PORT || 3001;
 
 
 // Define middleware here
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 // app.use(cors());
 // app.post("/checkout", async (req, res) => {
 //   console.log("Request:", req.body);
