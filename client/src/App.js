@@ -2,10 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import Navbar from './components/layout/Nav1';
+import Nav2 from './components/layout/Nav2';
 import Home from './components/pages/Home';
 import Staff from './components/pages/Staff';
 import All from './components/pages/All';
 import Detail from './components/pages/Details';
+import Cart from './components/pages/Cart';
 import Login from './components/auth/Login';
 import './App.css';
 
@@ -22,10 +24,12 @@ function App() {
                   onAuthRequired={onAuthRequired} >
       <div className="App">
         <Navbar />
-        <div className="container">
+        <Nav2/>
+        <div className="container-fluid">
           <Route exact path="/" component={Home} />
           <Route exact path="/shop" component={All} />
           <Route exact path="/shop/:id" component={Detail} />
+          <Route exact path="/cart" component={Cart} />
           <SecureRoute exact path="/staff" component={Staff} />
           <Route path='/login' render={() => <Login baseUrl='https://dev-252251.okta.com' />} />
           <Route path='/implicit/callback' component={ImplicitCallback} />

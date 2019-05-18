@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 import { Image } from "../Img";
-import { AddBtn } from "../AddToCartbtn";
 import M from 'materialize-css';
 class Detail extends Component {
     state = {
@@ -17,22 +16,7 @@ class Detail extends Component {
     instance;
 
 
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    // };
-
-    // addToCart = (src, quantity, size, price, id) => {
-    //     API.saveItem(src, quantity, size, price, id)
-    //         .then(
-    //             this.setState({
-    //                 id: this.state.id,
-    //                 scr: this.state.scr,
-    //                 quantity: this.state.quantity,
-    //                 size: this.state.size,
-    //                 price: this.state.price,
-    //             })
-    //         ).catch(err => console.log(err));
-    // };
+    
     componentDidMount() {
         API.getItem(this.props.match.params.id)
             .then(({ data }) => {
@@ -72,20 +56,9 @@ class Detail extends Component {
                         </div>
                         <button
                             onClick={() => {
-
                                 let resultsArray = this.instance.getSelectedValues();
                                 let result = resultsArray[0]
                                 let size = result.split(" ");
-                                // console.log(size, )
-                                // // this.addToCart(
-                                //     this.state.item.src,
-                                //     1,
-                                //     size[0],
-                                //     size[1],
-                                //     this.state.item._id,     
-                                // )
-
-                                // First get values that will be stored in a single item
                                 let image = this.state.item.src;
                                 let itemName = this.state.item.name;
                                 let quantity = 1;

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import StripeCheckout from 'react-stripe-checkout';
-import API from "../utils/API";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Image } from "../components/Img";
+import { Image } from "../Img";
 
 import axios from "axios";
 import M from 'materialize-css';
@@ -11,7 +11,7 @@ class Cart extends Component {
     state = {
         items: [],
         price: 100.99,
-      
+
     };
 
     componentDidMount() {
@@ -29,10 +29,10 @@ class Cart extends Component {
     // }
 
     loadCart = () => {
-        this.setState( state => {
+        this.setState(state => {
             return {
                 items: JSON.parse(localStorage.getItem("cart")),
-            
+
             }
         })
     }
@@ -53,7 +53,7 @@ class Cart extends Component {
     };
     render() {
         return (
-           
+
             <div className="container ">
                 <div className="row">
                     <table className="responsive-table">
@@ -72,9 +72,12 @@ class Cart extends Component {
                                 return (
                                     <tbody>
                                         <tr>
-                                            <td className="col s2"> <Image key={item.id}
+                                            <span className="delete-btn" role="button" tabIndex="0" onClick={() => this.deleteItem(item.producId)}>
+                                                ✗
+                                            </span>
+                                            <Link to={"/shop/" + item.producId}>  <td className="col s2"> <Image key={item.id}
                                                 src={item.image}
-                                            /></td>
+                                            /></td></Link>
                                             <td className="col s2 cartText">{item.itemName}</td>
                                             <td className="col s2 cartText">{item.quantity}</td>
                                             <td className="col s2 cartText">size:{item.productSize}</td>
@@ -90,16 +93,16 @@ class Cart extends Component {
                 </div>
                 {this.state.items ? (
                     <div className="row">
-                    <div className="col s5 push-s7">
-                        <StripeCheckout
-                            stripeKey="pk_test_ghF466uME2tEX5zsqi6ix7iU00yBuJ4Wur"
-                            description="Sabrina Clothing"
-                            label="Pay with 💳"
-                            token={this.handleToken}
-                            billingAddress
-                            shippingAddress
-                            amount={this.state.price * 100}
-                        />
+                        <div className="col s5 push-s7">
+                            <StripeCheckout
+                                stripeKey="pk_test_ghF466uME2tEX5zsqi6ix7iU00yBuJ4Wur"
+                                description="Sabrina Clothing"
+                                label="Pay with 💳"
+                                token={this.handleToken}
+                                billingAddress
+                                shippingAddress
+                                amount={this.state.price * 100}
+                            />
                         </div>
                     </div>
                 ) : (""

@@ -35,12 +35,11 @@ export default withAuth(class Home extends Component {
 
     const button = this.state.authenticated ?
       <button onClick={this.logout}>Logout</button> :
-      <button onClick={this.login}>Login</button>;
+      ("");
 
     return (
       <div>
-        <Link to='/'>Home</Link><br/>
-        <Link to='/protected'>Protected</Link><br/>
+       
         {button}
         <div className="container-fluid">
         <main>
