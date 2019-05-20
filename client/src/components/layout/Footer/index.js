@@ -12,7 +12,7 @@ function Footer(props) {
           </div>
           <div className="col l4 offset-l2 s12">
             <ul>
-              <li><a className="black-text text-darken-2" href="#!">Link 1</a></li>
+              <li><a className="black-text text-darken-2" href="/report">Report Problem</a></li>
               <li><a className="black-text text-darken-2" href="#!">Link 2</a></li>
               <li><a className="black-text text-darken-2" href="#!">Link 3</a></li>
               <li><a className="black-text text-darken-2" href="#!">Link 4</a></li>
@@ -22,7 +22,7 @@ function Footer(props) {
       </div>
       <div className="footer-copyright black-text text-darken-3">
         <div className="container centerd">
-          © 2019 Copyright Text
+          © 2019 Sabrina-Thread
 
           </div>
       </div>

@@ -4,20 +4,21 @@ import API from "../../utils/API";
 import { Link } from "react-router-dom";
 import { Image } from "../Img";
 import DelBtn from "../DelBtn"
-
 import axios from "axios";
 import M from 'materialize-css';
 
 class Cart extends Component {
     state = {
         items: [],
-        price: 100.99,
 
     };
 
     componentDidMount() {
         this.loadCart();
         M.FormSelect.init(document.querySelectorAll('select'));
+    }
+    saveOrder = (id, name, quantity, size, price) => {
+        API.saveOrder(id, name, quantity, size, price)
     }
     // getSubtotal = (json) => {
     //     subtotal = 0;
@@ -63,7 +64,7 @@ class Cart extends Component {
         return (
             <main>
                 <div className="container ">
-                <div className="row"></div>
+                    <div className="row"></div>
                     <div className="row">
                         <table className="responsive-table">
                             <thead>
@@ -90,6 +91,7 @@ class Cart extends Component {
                                                 <td className="col s2 cartText">${item.price}</td>
                                             </tr>
                                         </tbody>
+
                                     )
                                 })
                             ) : (
@@ -99,11 +101,7 @@ class Cart extends Component {
                     </div>
                     {this.state.items ? (
                         <div className="row">
-                            <div className="col s5 push-s7"
-                            // onClick={() => 
-                            // {this.saveOrder
-                            // }}
-                            >
+                            <div className="col s5 push-s7">
                                 <StripeCheckout
                                     stripeKey="pk_test_ghF466uME2tEX5zsqi6ix7iU00yBuJ4Wur"
                                     description="Sabrina Clothing"

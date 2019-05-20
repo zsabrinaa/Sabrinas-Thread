@@ -2,8 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const  orderItemSchema = new Schema({
-  order_id:{type: Schema.Types.ObjectId, ref: 'Orders'},
-  product_id: {type: Schema.Types.ObjectId, ref: 'Item'},
+  product_id: String,
+  name: String,
+  size: String,
+  price: Number,
   quantity: {type: Number},
   date: { type: Date, default: Date.now}
 });

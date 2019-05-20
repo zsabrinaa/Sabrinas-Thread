@@ -64,50 +64,53 @@ class Detail extends Component {
                         </div>
                         <button
                             onClick={() => {
-                                M.toast("Added!!");
-                                let resultsArray = this.state.selectedSize;
-                                console.log(resultsArray)
-                                let result = resultsArray
-                                let size = result.split(" ");
-                                let image = this.state.item.src;
-                                let itemName = this.state.item.name;
-                                let quantity = 1;
-                                let productSize = size[0];
-                                let price = size[1];
-                                let productId = this.state.item._id;
-                              
-                                // Save item details in a JSON object
-                                let itemJson = {
-                                    "itemName": itemName,
-                                    "productSize": productSize,
-                                    "price": price,
-                                    "image": image,
-                                    "quantity": quantity,
-                                    "producId": productId
-                                };
-                               
-                                // Local Storage is empty
-                                if (localStorage.getItem("cart") === null) {
-                                    console.log("local storage is empty");
-                                    let cart = [];
-                                    cart.push(itemJson);
-                                    localStorage.setItem("cart", JSON.stringify(cart));
-                                // Local Storage has something in it
-                                } else {
-                                    console.log("local storage is NOT empty");
-                                    console.log("current local storage: " + localStorage.getItem("cart"));
-                                    let currentCart = JSON.parse(localStorage.getItem("cart"));
-                                    currentCart.push(itemJson);
-                                    localStorage.setItem("cart", JSON.stringify(currentCart));
-                                }
-                            }}
-                            type="submit"
-                            className="addbtn"> Add To Cart <i className="material-icons">
+                                M.toast({ html: 'Added' })
+                                
+                                    let resultsArray = this.state.selectedSize;
+                                        let result = resultsArray
+                                        let size = result.split(" ");
+                                        let image = this.state.item.src;
+                                        let itemName = this.state.item.name;
+                                        let quantity = 1;
+                                        let productSize = size[0];
+                                        let price = size[1];
+                                        let productId = this.state.item._id;
+                                        
+                                        // Save item details in a JSON object
+                                        let itemJson = {
+                                            "itemName": itemName,
+                                            "productSize": productSize,
+                                            "price": price,
+                                            "image": image,
+                                            "quantity": quantity,
+                                            "producId": productId
+                                        };
+                                        
+                                        // Local Storage is empty
+                                        if (localStorage.getItem("cart") === null) {
+                                            console.log("local storage is empty");
+                                            let cart = [];
+                                            cart.push(itemJson);
+                                            localStorage.setItem("cart", JSON.stringify(cart));
+                                            // Local Storage has something in it
+                                        } else {
+                                            console.log("local storage is NOT empty");
+                                            console.log("current local storage: " + localStorage.getItem("cart"));
+                                            let currentCart = JSON.parse(localStorage.getItem("cart"));
+                                            currentCart.push(itemJson);
+                                            localStorage.setItem("cart", JSON.stringify(currentCart));
+                                        }
+                                     
+                                    
+                                    }}
+                                type="submit"
+                                className="addbtn"> Add To Cart <i className="material-icons">
                                 shopping_cart
-                        </i></button>
-                    </div>
-                </div>
-            </div>
+                                </i></button>
+                               
+                                </div>
+                                </div>
+                                </div>
         )
     }
 }

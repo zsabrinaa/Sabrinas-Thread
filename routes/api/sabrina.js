@@ -8,17 +8,15 @@ router
   .get(itemsController.findAll)
   
 router
-  .route("/signup")
-  .post(itemsController.create)
-  
-router
   .route("/shop/:id")
   .get(itemsController.findById)
 router
   .route("/cart")
-  .post(itemsController.create)
   .get(itemsController.findAll2)
-  
+router 
+.route("/staff")
+.post(itemsController.saveReport)
+.get(itemsController.findAll3)
 router
   .route("/shop/cat/:category")
   .get(itemsController.findByCategory)

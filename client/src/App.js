@@ -10,6 +10,7 @@ import All from './components/pages/All';
 import Category from './components/pages/Category';
 import Detail from './components/pages/Details';
 import Cart from './components/pages/Cart';
+import ReportPage from './components/pages/Report';
 import Login from './components/auth/Login';
 import './App.css';
 
@@ -34,6 +35,7 @@ function App() {
               <Route exact path="/shop/:id" component={Detail} />
               <Route exact path="/shop/cat/:category" component={Category} />
               <Route exact path="/cart" component={Cart} />
+              <Route exact path="/report" component={ReportPage} />
               <SecureRoute exact path="/staff" component={Staff} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-252251.okta.com' />} />
               <Route path='/implicit/callback' component={ImplicitCallback} />

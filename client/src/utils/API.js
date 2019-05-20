@@ -4,41 +4,28 @@ export default {
   // search: function(query) {
   //   return axios.get(BASEURL + query + APIKEY);
   // },
-  checkOut: function(){
-    return axios.post("/api/checkout")
-  },
-  getItems: function() {
+ 
+  getItems: function () {
     return axios.get("/api/items");
   },
-  getCartItems: function() {
+  getReports: function () {
+    return axios.get("/api/staff");
+  },
+  getCartItems: function () {
     return axios.get("/api/cart");
-  },
-  // Gets the book with the given id
-  getItem: function(id) {
+  }, 
+  getItem: function (id) {
     return axios.get("/api/shop/" + id);
-  },
-  createAccount: function(a,b){
-    return axios.post("/api/signup",{
-      email: a,
-      password: b
-    });
-  },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
-  },
-  findcat: function(cat) {
+  }, 
+  findcat: function (cat) {
     return axios.get(`/api/shop/cat/` + cat)
   },
- 
-  saveItem: function(a,b,c,d,e) {
-    console.log(a,b,c,d,e)
-    return axios.post("/api/cart",{
-      src: a,
-      quantity: b,
-      size: c,
-      price: d,
-      id: e
+  saveReport: function (a, b) {
+    console.log(a, b)
+    return axios.post("/api/staff", {
+      email: a,
+      problem: b,
+      
     });
   }
 };

@@ -15,6 +15,22 @@ module.exports = {
         res.json(dbModel)})
       .catch(err => res.status(422).json(err));
   },
+  findAll3: function(req, res) {
+    db.Report
+      .find({})
+      .then(dbModel => {
+        res.json(dbModel)})
+      .catch(err => res.status(422).json(err));
+  },
+  saveReport: function(req, res){
+    db.Report
+    .create(req.body)
+      .then(dbModel => res.json(dbModel))
+      .catch(err =>{
+        console.log(err)
+        res.status(422).json(err);
+      })
+  },
   findById: function(req, res) {
     db.Item   
       .findById(req.params.id)
@@ -30,15 +46,6 @@ module.exports = {
     .catch(err => {
       console.log(err) 
       res.status(422).json(err)});
-},
-  create: function(req, res) {
-    db.Cart
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err =>{
-        console.log(err)
-        res.status(422).json(err);
-      })
-  }
+}
  
 };
