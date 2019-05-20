@@ -43,7 +43,7 @@ class Detail extends Component {
                     </div>
                     <div className="col s6">
                         <h3>{this.state.item.name}</h3>
-                        <div className="input-field col s12 ">
+                        <div className="input-field col s12">
                             <select
                                 id="size-stuff"
                                 onChange={(e)=>{
@@ -52,11 +52,11 @@ class Detail extends Component {
                                     })
                                 }}
                                 >
-                                <option className="niceText" value="" disabled selected>Size</option>
+                                <option value="" disabled selected>Size</option>
                                 {this.state.item.size ? (
                                     Object.keys(this.state.item.size).map((size, i) => {
                                         const price = this.state.item.size[size]
-                                        return <option  className="niceText" value={size + " " + price}>{size}=  ${price}</option>
+                                        return <option value={size + " " + price}>{size}=  ${price}</option>
                                     })
                                 ) : ""}
                             </select>

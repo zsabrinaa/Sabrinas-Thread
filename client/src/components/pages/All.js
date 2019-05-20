@@ -34,11 +34,11 @@ class All extends Component {
                     />
                      </Link>
                      <div> {item.name}</div>
-                     <div >
+                     <div className="price">
                     {Object.keys(item.size).map((size, i) => {
                       if (i !== 0 && i !== 5) return
                       const price = item.size[size]
-                      return <span>${price}{(i === 0)?'/':''}</span>
+                      return <span>${price}{(i === 0)?'/ ':''}</span>
                     })}
                     </div>
                 </div>

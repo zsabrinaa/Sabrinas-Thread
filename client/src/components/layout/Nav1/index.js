@@ -30,6 +30,7 @@ class Navbar extends Component {
                     </nav>
                 </header>
                 <ul className="sidenav" id="mobile-demo"> <img className="responsive-img" id="logo" src="http://sabrinaharrison.com/wp-content/uploads/2016/01/sabrina-web-logo-black.png" />
+                    <li><Link to="/">Home</Link></li>
                     <li><Link to="/cart">Cart</Link></li>
                     <li><Link to="/shop/cat/tees">T-Shirts</Link></li>
                     <li><Link to="/shop/cat/dress">Dresses</Link></li>

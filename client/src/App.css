@@ -3,6 +3,7 @@ body{
 }
 .niceText{
   font-family: 'Schoolbell', cursive  !important;
+  color: #f197ba;
 }
 .Site {
  display: flex;
@@ -89,9 +90,9 @@ body{
     background-color: hotpink;
     width: 170px;
     margin-left: 60%;
+    height: 40px;
     font-family: 'Marcellus SC', serif;
   }
- 
   .brand-logo img {
     height: 64px;
 }
@@ -99,7 +100,11 @@ body{
   background-color: red !important;
   margin-right: 5px;
 }
-
+.price{
+ font-size: 20px;
+  color: #f197ba;
+  
+}
   @media (max-width: 500px) {
     .brand-logo img {
       height: 56px;
