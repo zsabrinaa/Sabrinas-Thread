@@ -31,7 +31,6 @@ class Detail extends Component {
 
     }
     render() {
-        console.log(this.state)
         return (
             <div className="container">
             <div className="row"></div>
@@ -42,7 +41,7 @@ class Detail extends Component {
                         />
                     </div>
                     <div className="col s6">
-                        <h3>{this.state.item.name}</h3>
+                        <p className="itemName">{this.state.item.name}</p>
                         <div className="input-field col s12">
                             <select
                                 id="size-stuff"
@@ -62,51 +61,53 @@ class Detail extends Component {
                             </select>
                             <label>Select Size</label>
                         </div>
+                        <div className="container">
+
                         <button
                             onClick={() => {
                                 M.toast({ html: 'Added' })
+                                let resultsArray = this.state.selectedSize;
+                                let result = resultsArray
+                                let size = result.split(" ");
+                                let image = this.state.item.src;
+                                let itemName = this.state.item.name;
+                                let quantity = 1;
+                                let productSize = size[0];
+                                let price = size[1];
+                                let productId = this.state.item._id;
                                 
-                                    let resultsArray = this.state.selectedSize;
-                                        let result = resultsArray
-                                        let size = result.split(" ");
-                                        let image = this.state.item.src;
-                                        let itemName = this.state.item.name;
-                                        let quantity = 1;
-                                        let productSize = size[0];
-                                        let price = size[1];
-                                        let productId = this.state.item._id;
-                                        
-                                        // Save item details in a JSON object
-                                        let itemJson = {
-                                            "itemName": itemName,
-                                            "productSize": productSize,
-                                            "price": price,
-                                            "image": image,
-                                            "quantity": quantity,
-                                            "producId": productId
-                                        };
-                                        
-                                        // Local Storage is empty
-                                        if (localStorage.getItem("cart") === null) {
-                                            console.log("local storage is empty");
-                                            let cart = [];
-                                            cart.push(itemJson);
-                                            localStorage.setItem("cart", JSON.stringify(cart));
-                                            // Local Storage has something in it
-                                        } else {
-                                            console.log("local storage is NOT empty");
-                                            console.log("current local storage: " + localStorage.getItem("cart"));
-                                            let currentCart = JSON.parse(localStorage.getItem("cart"));
-                                            currentCart.push(itemJson);
-                                            localStorage.setItem("cart", JSON.stringify(currentCart));
-                                        }
-                                     
-                                    
-                                    }}
-                                type="submit"
-                                className="addbtn"> Add To Cart <i className="material-icons">
+                                // Save item details in a JSON object
+                                let itemJson = {
+                                    "itemName": itemName,
+                                    "productSize": productSize,
+                                    "price": price,
+                                    "image": image,
+                                    "quantity": quantity,
+                                    "producId": productId
+                                };
+                                
+                                // Local Storage is empty
+                                if (localStorage.getItem("cart") === null) {
+                                    console.log("local storage is empty");
+                                    let cart = [];
+                                    cart.push(itemJson);
+                                    localStorage.setItem("cart", JSON.stringify(cart));
+                                    // Local Storage has something in it
+                                } else {
+                                    console.log("local storage is NOT empty");
+                                    console.log("current local storage: " + localStorage.getItem("cart"));
+                                    let currentCart = JSON.parse(localStorage.getItem("cart"));
+                                    currentCart.push(itemJson);
+                                    localStorage.setItem("cart", JSON.stringify(currentCart));
+                                }
+                                
+                                
+                            }}
+                            type="submit"
+                            className="addbtn"> Add To Cart <i className="material-icons">
                                 shopping_cart
                                 </i></button>
+                            </div>
                                
                                 </div>
                                 </div>

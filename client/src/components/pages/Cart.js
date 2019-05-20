@@ -130,7 +130,7 @@ class Cart extends Component {
                                     <p>Subtotal: ${this.getSubtotal()}</p>
                                     <p>Tax: ${this.getTax()}</p>
                                     <p>Shipping: $10</p>
-                                    <h4>Total:$ {this.getTotal()}</h4>
+                                    <h4>Total: ${this.getTotal()}</h4>
                                 </div>
                             </div>
                             <div className="col s5 push-s7">

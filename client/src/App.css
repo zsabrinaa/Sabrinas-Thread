@@ -102,8 +102,10 @@ body{
 }
 .price{
  font-size: 20px;
-  color: #f197ba;
-  
+  color: #f197ba; 
+}
+.itemName {
+  font-size:40px;
 }
   @media (max-width: 500px) {
     .brand-logo img {
@@ -126,6 +128,13 @@ body{
       margin-top: 50px;
       margin-bottom: -10px;
     }
+    .addbtn{
+      width: 100px;
+      margin-left: 35%;
+    }
+    .itemName{
+      font-size: 20px;
+    }
     
   }
   @media (max-width: 380px){
@@ -147,5 +156,8 @@ body{
     }
     .brand-logo img {
       height: 56px;
+    }
+    .addbtn{
+      width: 30px;
     }
   }
