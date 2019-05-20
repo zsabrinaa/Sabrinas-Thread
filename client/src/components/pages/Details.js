@@ -34,6 +34,7 @@ class Detail extends Component {
         console.log(this.state)
         return (
             <div className="container">
+            <div className="row"></div>
                 <div className="row">
                     <div className="col s6">
                         <Image key={this.state.item._id}
@@ -42,7 +43,7 @@ class Detail extends Component {
                     </div>
                     <div className="col s6">
                         <h3>{this.state.item.name}</h3>
-                        <div className="input-field col s12">
+                        <div className="input-field col s12 ">
                             <select
                                 id="size-stuff"
                                 onChange={(e)=>{
@@ -51,11 +52,11 @@ class Detail extends Component {
                                     })
                                 }}
                                 >
-                                <option value="" disabled selected>Size</option>
+                                <option className="niceText" value="" disabled selected>Size</option>
                                 {this.state.item.size ? (
                                     Object.keys(this.state.item.size).map((size, i) => {
                                         const price = this.state.item.size[size]
-                                        return <option value={size + " " + price}>{size}=  ${price}</option>
+                                        return <option  className="niceText" value={size + " " + price}>{size}=  ${price}</option>
                                     })
                                 ) : ""}
                             </select>
@@ -63,6 +64,7 @@ class Detail extends Component {
                         </div>
                         <button
                             onClick={() => {
+                                M.toast("Added!!");
                                 let resultsArray = this.state.selectedSize;
                                 console.log(resultsArray)
                                 let result = resultsArray
@@ -73,7 +75,7 @@ class Detail extends Component {
                                 let productSize = size[0];
                                 let price = size[1];
                                 let productId = this.state.item._id;
-
+                              
                                 // Save item details in a JSON object
                                 let itemJson = {
                                     "itemName": itemName,
@@ -83,8 +85,7 @@ class Detail extends Component {
                                     "quantity": quantity,
                                     "producId": productId
                                 };
-                                console.log("item selected" + JSON.stringify(itemJson));
-
+                               
                                 // Local Storage is empty
                                 if (localStorage.getItem("cart") === null) {
                                     console.log("local storage is empty");
@@ -101,7 +102,7 @@ class Detail extends Component {
                                 }
                             }}
                             type="submit"
-                            className="addbtn"> Add To Cart <i class="material-icons">
+                            className="addbtn"> Add To Cart <i className="material-icons">
                                 shopping_cart
                         </i></button>
                     </div>

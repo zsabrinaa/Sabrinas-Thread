@@ -1,5 +1,8 @@
 body{
-    font-family: 'Marcellus SC', serif;  
+  font-family: 'Schoolbell', cursive;
+}
+.niceText{
+  font-family: 'Schoolbell', cursive  !important;
 }
 .Site {
  display: flex;
@@ -81,6 +84,7 @@ body{
     background-color: black;
   }
   .addbtn{
+    font-family: 'Schoolbell', cursive  !important;
     background-color: hotpink;
     width: 170px;
     margin-left: 60%;
