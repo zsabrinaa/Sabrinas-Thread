@@ -63,6 +63,7 @@ body{
   
   
   .container-fluid .btn {
+    font-family: 'Schoolbell', cursive;
     width: 200px;
     height: 70px;
     position: absolute;
@@ -95,7 +96,46 @@ body{
     height: 64px;
 }
 
-  @media (max-width: 600px) {
+  @media (max-width: 500px) {
+    .brand-logo img {
+      height: 56px;
+    }
+    .container-fluid .btn{
+      font-size: 15px;
+      width: 140px;
+      height: 40px;
+      top: 55%;
+      display: flex;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+    }
+    .shopByType{
+      font-size: 40px;
+      text-align: center;
+      margin-left: 85px;
+      margin-top: 50px;
+      margin-bottom: -10px;
+    }
+    
+  }
+  @media (max-width: 380px){
+    .container-fluid .btn{
+      font-size: 15px;
+      width: 140px;
+      height: 40px;
+      top: 60%;
+      display: flex;
+      left: 50%;
+      display: flex;
+      justify-content: center;
+
+    }
+    .shopByType{
+      font-size: 30px;
+      text-align: center;
+      margin-left: 75px;
+    }
     .brand-logo img {
       height: 56px;
     }

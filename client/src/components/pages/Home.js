@@ -58,7 +58,7 @@ export default withAuth(class Home extends Component {
           {/* end top img */}
           <div className="row">
             <div className="col m12 canterd">
-              <h1>Shop by type</h1>
+              <h1 className="shopByType">Shop by type</h1>
             </div>
           </div>
           {/* end text */}
