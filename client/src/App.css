@@ -95,6 +95,10 @@ body{
   .brand-logo img {
     height: 64px;
 }
+.cancelbtn{
+  background-color: red !important;
+  margin-right: 5px;
+}
 
   @media (max-width: 500px) {
     .brand-logo img {

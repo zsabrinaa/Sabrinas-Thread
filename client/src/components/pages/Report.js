@@ -59,11 +59,11 @@ class ReportPage extends Component {
                              <div className="clearfix">
                             <a href="/"><button
                                 type="button"
-                                className="cancelbtn">Cancel</button></a>
+                                className="cancelbtn waves-effect waves-light btn-small">Cancel</button></a>
                             <button
                                 onClick={this.handleFormSubmit}
                                 type="submit"
-                                className="reportbtn">Report</button>
+                                className="reportbtn waves-effect waves-light btn-small">Report</button>
                         </div>
                     </div>
                 </form>
