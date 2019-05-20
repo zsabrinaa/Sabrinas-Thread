@@ -101,7 +101,7 @@ class Cart extends Component {
                                     <th className="col s2">Item Price</th>
                                 </tr>
                             </thead>
-                            {this.state.items.length ? (
+                            {this.state.items.length   ? (
                                 this.state.items.map(item => {
                                     return (
                                         <tbody>
