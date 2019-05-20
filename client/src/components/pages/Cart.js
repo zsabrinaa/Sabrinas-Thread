@@ -1,32 +1,49 @@
 import React, { Component } from "react";
 import StripeCheckout from 'react-stripe-checkout';
-import API from "../../utils/API";
+
 import { Link } from "react-router-dom";
 import { Image } from "../Img";
 import DelBtn from "../DelBtn"
 import axios from "axios";
 import M from 'materialize-css';
-import { when } from "q";
+
 
 class Cart extends Component {
     state = {
         items: [],
 
-    };
 
+    };
     componentDidMount() {
         this.loadCart();
         M.FormSelect.init(document.querySelectorAll('select'));
     }
-    // getSubtotal = (json) => {
-    //     subtotal = 0;
+    getSubtotal = () => {
+        // Get current cart
+        const currentCart = JSON.parse(localStorage.getItem("cart"));
+        let subtotal = 0
 
-    //     json.forEach(element => {
-    //         subtotal = + element.price
-    //     });
+        currentCart.map(item => {
+            subtotal = subtotal + parseFloat(item.price)
+        })
+        return subtotal;
 
-    //     return subtotal;
-    // }
+    }
+    getTax = () => {
+        // Get current cart
+        const currentCart = JSON.parse(localStorage.getItem("cart"));
+        let subtotal = 0
+
+        currentCart.map(item => {
+            subtotal = subtotal + parseFloat(item.price)
+        })
+        return Number((subtotal * 1.0825) - subtotal).toFixed(2);
+
+    }
+    getTotal = () => {
+        return Number(this.getSubtotal() * 1.0825 + 10).toFixed(2);
+    }
+
 
     loadCart = () => {
         this.setState({
@@ -36,7 +53,7 @@ class Cart extends Component {
     deleteItem = id => {
         // Get current cart
         const currentCart = JSON.parse(localStorage.getItem("cart"));
-        
+
         // Create object to hold our new cart
         let newCart = [];
 
@@ -44,13 +61,13 @@ class Cart extends Component {
         // we want to delete
         currentCart.map(item => {
             if (item.producId != id) {
-               newCart.push(item);
+                newCart.push(item);
             }
         })
         // Clear everything in local storage
         localStorage.clear();
         // Set cart in local storage to our new cart object
-        localStorage.setItem("cart", JSON.stringify(newCart));  
+        localStorage.setItem("cart", JSON.stringify(newCart));
         this.loadCart()
     }
 
@@ -99,7 +116,6 @@ class Cart extends Component {
                                                 <td className="col s2 cartText">${item.price}</td>
                                             </tr>
                                         </tbody>
-
                                     )
                                 })
                             ) : (
@@ -109,6 +125,14 @@ class Cart extends Component {
                     </div>
                     {this.state.items.length ? (
                         <div className="row">
+                            <div className="row">
+                                <div className="col s5 push-s7">
+                                    <p>Subtotal: ${this.getSubtotal()}</p>
+                                    <p>Tax: ${this.getTax()}</p>
+                                    <p>Shipping: $10</p>
+                                    <h4>Total:$ {this.getTotal()}</h4>
+                                </div>
+                            </div>
                             <div className="col s5 push-s7">
                                 <StripeCheckout
                                     stripeKey="pk_test_ghF466uME2tEX5zsqi6ix7iU00yBuJ4Wur"
@@ -117,7 +141,7 @@ class Cart extends Component {
                                     token={this.handleToken}
                                     billingAddress
                                     shippingAddress
-                                    amount={this.state.price * 100}
+                                    amount={this.getTotal() * 100}
                                 />
                             </div>
                         </div>
