@@ -6,6 +6,7 @@ import { Image } from "../Img";
 import DelBtn from "../DelBtn"
 import axios from "axios";
 import M from 'materialize-css';
+import { when } from "q";
 
 class Cart extends Component {
     state = {
@@ -16,9 +17,6 @@ class Cart extends Component {
     componentDidMount() {
         this.loadCart();
         M.FormSelect.init(document.querySelectorAll('select'));
-    }
-    saveOrder = (id, name, quantity, size, price) => {
-        API.saveOrder(id, name, quantity, size, price)
     }
     // getSubtotal = (json) => {
     //     subtotal = 0;
@@ -31,18 +29,28 @@ class Cart extends Component {
     // }
 
     loadCart = () => {
-        // console.log("loading cart")
-        // console.log(JSON.parse(localStorage.getItem("cart")))
         this.setState({
-
             items: JSON.parse(localStorage.getItem("cart")),
         })
     }
     deleteItem = id => {
-        const cartStuff = JSON.parse(localStorage.getItem("cart"));
-        cartStuff = []
-        console.log(cartStuff);
-        localStorage.removeItem(id)
+        // Get current cart
+        const currentCart = JSON.parse(localStorage.getItem("cart"));
+        
+        // Create object to hold our new cart
+        let newCart = [];
+
+        // Loop through current cart and any item that does not have the product ID that 
+        // we want to delete
+        currentCart.map(item => {
+            if (item.producId != id) {
+               newCart.push(item);
+            }
+        })
+        // Clear everything in local storage
+        localStorage.clear();
+        // Set cart in local storage to our new cart object
+        localStorage.setItem("cart", JSON.stringify(newCart));  
         this.loadCart()
     }
 
@@ -76,7 +84,7 @@ class Cart extends Component {
                                     <th className="col s2">Item Price</th>
                                 </tr>
                             </thead>
-                            {this.state.items ? (
+                            {this.state.items.length ? (
                                 this.state.items.map(item => {
                                     return (
                                         <tbody>
@@ -99,7 +107,7 @@ class Cart extends Component {
                                 )}
                         </table>
                     </div>
-                    {this.state.items ? (
+                    {this.state.items.length ? (
                         <div className="row">
                             <div className="col s5 push-s7">
                                 <StripeCheckout

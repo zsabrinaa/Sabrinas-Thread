@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
-import {Image} from '../Img'
+import { Image } from '../Img'
 
 export default withAuth(class Home extends Component {
   state = { authenticated: null };
-    
 
-   checkAuthentication = async() => {
+
+  checkAuthentication = async () => {
     const authenticated = await this.props.auth.isAuthenticated();
     if (authenticated !== this.state.authenticated) {
       this.setState({ authenticated });
@@ -23,11 +23,11 @@ export default withAuth(class Home extends Component {
   }
 
 
-   login = async() => {
+  login = async () => {
     this.props.auth.login('/');
   }
 
-   logout =async() => {
+  logout = async () => {
     this.props.auth.logout('/');
   }
 
@@ -40,7 +40,10 @@ export default withAuth(class Home extends Component {
 
     return (
       <main>
-        {button}
+      
+        <div className="row">
+          <div className="col s5 push-s7">{button}</div>
+          </div>
         <div className="container-fluid">
           <div className="row">
           </div>
@@ -72,7 +75,7 @@ export default withAuth(class Home extends Component {
                 src={"https://ae01.alicdn.com/kf/HTB1GoDedAfb_uJkSmRyq6zWxVXa0/Family-Matching-Outfits-Father-Mother-Daughter-Son-Clothes-Look-tshirt-daddy-mommy-and-me-dress-mom.jpg_640x640.jpg"}
               />
             </div>
-            <div className="col m3"  onClick={() => this.props.history.push('/shop/cat/dress')}>
+            <div className="col m3" onClick={() => this.props.history.push('/shop/cat/dress')}>
               <Image
                 src={"https://ae01.alicdn.com/kf/HTB1lDY4XsfrK1RkSmLyq6xGApXa4/Mother-daughter-dresses-2019-Vintage-Floral-Mini-Dress-Mom-and-daughter-dress-Mother-and-daughter-clothes.jpg_640x640.jpg"}
               />
@@ -83,9 +86,9 @@ export default withAuth(class Home extends Component {
               />
             </div>
           </div>
-       
-      </div>
-     
+
+        </div>
+
       </main>
     );
   }
