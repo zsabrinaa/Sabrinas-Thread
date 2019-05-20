@@ -40,7 +40,6 @@ export default withAuth(class Home extends Component {
 
     return (
       <main>
-      
         <div className="row">
           <div className="col s5 push-s7">{button}</div>
           </div>
@@ -53,7 +52,6 @@ export default withAuth(class Home extends Component {
                 src={"http://mcflysoftware.com/sabrina/sabrina_cover.png?fbclid=IwAR2biDqoWdq6sMuVkHKD13YRT4ApeH3AlldZtxAK9BXdVHeOj58ip3naVmI"}
               />
               <Link to="/shop"><button
-                // onClick={props.handleFormSubmit} 
                 className="btn">Shop Now</button></Link>
             </div>
           </div>
