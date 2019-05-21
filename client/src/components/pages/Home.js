@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { withAuth } from '@okta/okta-react';
+
 import { Image } from '../Img'
 
 export default withAuth(class Home extends Component {
